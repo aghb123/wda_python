@@ -11,7 +11,7 @@ import urllib3
 from requests.adapters import HTTPAdapter
 # from requests.compat import unquote, urlparse
 
-from wda import usbmux
+from wda_python import usbmux
 
 try:
     import http.client as httplib

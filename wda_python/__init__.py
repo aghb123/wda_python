@@ -32,11 +32,11 @@ from deprecated import deprecated
 # from .usbmux import Usbmux
 # from .utils import inject_call, limit_call_depth
 
-from wda import requests_usbmux, xcui_element_types
-from wda._proto import *
-from wda.exceptions import *
-from wda.usbmux import Usbmux
-from wda.utils import inject_call, limit_call_depth
+from wda_python import requests_usbmux, xcui_element_types
+from wda_python._proto import *
+from wda_python.exceptions import *
+from wda_python.usbmux import Usbmux
+from wda_python.utils import inject_call, limit_call_depth
 
 try:
     from functools import cached_property  # Python3.8+
@@ -1011,6 +1011,12 @@ class BaseClient(object):
                     toElementIndex=toElement["index"])
 
         return self._session_http.post('/wda/dragToOtherElement', data=data)
+
+    def slideBack(self):
+        """
+        滑动手势退出
+        """
+        return self._session_http.get('/wda/slideBack')
 
     def swipe_left(self):
         """ swipe right to left """
